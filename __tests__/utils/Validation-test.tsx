@@ -5,7 +5,7 @@ import {
   ExpirationValidator,
   NameValidator,
 } from '../../utils/Validation';
-import Constants from '../Constants';
+import Constants from '../props/Constants';
 import Localization from '../../resources/Localization';
 
 const SCOPED_CONSTANTS = Constants.VALIDATION;

@@ -31,6 +31,9 @@
     "typescript": "4.8.4"
   },
   "jest": {
+    "testPathIgnorePatterns": [
+      "__tests__/props"
+    ],
     "preset": "react-native"
   }
 }
