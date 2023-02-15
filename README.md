@@ -6,12 +6,12 @@ To get started, please follow these steps:
 1. Clone the repository to your local machine:
 
 ```bash
-git clone https://github.com/your-username/your-repository.git
+git clone https://github.com/subwizzll/ReactSample.git
 ```
 
 2. Navigate to the directory where the tests are located:
 ```bash
-cd your-repository/tests/utils/
+cd ReactSample/__tests__/utils/
 ```
 
 3. Install dependencies by running:
