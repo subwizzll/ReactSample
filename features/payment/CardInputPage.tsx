@@ -4,10 +4,10 @@ import {ScrollView, StyleSheet, View} from 'react-native';
 import Button from '../shared/components/Button';
 import LabeledInput from '../shared/components/LabeledInput';
 import SafeAreaPage from '../shared/pages/SafeAreaPage';
-import * as Validation from '../utils/Validation';
-import * as Masks from '../utils/Masks';
-import Localization from '../resources/Localization';
-import {isNullOrWhiteSpace} from '../utils/StringMethods';
+import * as Validation from '../../utils/Validation';
+import * as Masks from '../../utils/Masks';
+import Localization from '../../resources/Localization';
+import {isNullOrWhiteSpace} from '../../utils/StringMethods';
 
 const SCOPED_STRINGS = Localization.PAYMENT.CardInputPage;
 

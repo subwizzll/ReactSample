@@ -2,7 +2,7 @@ import React from 'react';
 import {StyleSheet, TouchableOpacity} from 'react-native';
 
 import Text from './Text';
-import {Colors} from '../../resources/Colors';
+import {Colors} from '../../../resources/Colors';
 import {TouchableOpacityProps} from 'react-native/Libraries/Components/Touchable/TouchableOpacity';
 import {TextProps} from 'react-native/Libraries/Text/Text';
 

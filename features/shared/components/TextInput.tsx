@@ -1,6 +1,6 @@
 import React from 'react';
 import {TextInput as NativeTextInput, TextInputProps} from 'react-native';
-import * as Themes from '../../resources/Styles';
+import * as Themes from '../../../resources/Styles';
 
 export default function TextInput(props: TextInputProps) {
   return (

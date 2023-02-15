@@ -1,7 +1,7 @@
 import React from 'react';
 import {SafeAreaView, StatusBar} from 'react-native';
 
-import * as Themes from '../../resources/Styles';
+import * as Themes from '../../../resources/Styles';
 
 interface SafeAreaPageProps {
   children: React.ReactNode;
