@@ -1,4 +1,4 @@
-export const CreditCardMask = (text: string) => {
+export const creditCardMask = (text: string) => {
   let formattedText = text.replace(/\D/g, ''); // remove all non-numeric characters
   if (formattedText.length > 16) {
     formattedText = formattedText.slice(0, 16); // limit to 16 digits
@@ -13,7 +13,7 @@ export const CreditCardMask = (text: string) => {
   return maskedText;
 };
 
-export const AmexCreditCardMask = (text: string) => {
+export const amexCreditCardMask = (text: string) => {
   let formattedText = text.replace(/\D/g, ''); // remove all non-numeric characters
   if (formattedText.length > 15) {
     formattedText = formattedText.slice(0, 15); // limit to 15 digits
@@ -28,7 +28,7 @@ export const AmexCreditCardMask = (text: string) => {
   return maskedText;
 };
 
-export const CardExpirationMask = (text: string) => {
+export const cardExpirationMask = (text: string) => {
   // Remove non-numeric characters
   const numericText = text.replace(/\D/g, '');
 

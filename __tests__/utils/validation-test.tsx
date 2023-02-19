@@ -1,19 +1,19 @@
 import {
-  AmexCvvValidator,
-  CardNumberValidator,
-  CvvValidator,
-  ExpirationValidator,
-  NameValidator,
-} from '../../utils/Validation';
-import Constants from '../props/Constants';
-import Localization from '../../resources/Localization';
+  amexCvvValidator,
+  cardNumberValidator,
+  cvvValidator,
+  expirationValidator,
+  nameValidator,
+} from '../../utils/validation';
+import {Constants} from '../props/constants';
+import {Strings} from '../../resources/strings';
 
 const SCOPED_CONSTANTS = Constants.VALIDATION;
-const SCOPED_STRINGS = Localization.VALIDATION;
+const SCOPED_STRINGS = Strings.UTILS.VALIDATION;
 
 describe('CardNumberValidator', () => {
   it('should return an error message when the input is empty', () => {
-    expect(CardNumberValidator('')).toEqual(SCOPED_STRINGS.MustNotBeEmpty);
+    expect(cardNumberValidator('')).toEqual(SCOPED_STRINGS.mustNotBeEmpty);
   });
 
   it('should return an error message when the card number is invalid', () => {
@@ -21,8 +21,8 @@ describe('CardNumberValidator', () => {
       t => t.INVALID,
     );
     for (let i = 0; i < values.length; i++) {
-      expect(CardNumberValidator(values[i])).toEqual(
-        SCOPED_STRINGS.InvalidCardNumber,
+      expect(cardNumberValidator(values[i])).toEqual(
+        SCOPED_STRINGS.invalidCardNumber,
       );
     }
   });
@@ -32,122 +32,122 @@ describe('CardNumberValidator', () => {
       t => t.VALID,
     );
     for (let i = 0; i < values.length; i++) {
-      expect(CardNumberValidator(values[i])).toEqual('');
+      expect(cardNumberValidator(values[i])).toEqual('');
     }
   });
 
   it('should return an error when given a 15 character Visa card number', () => {
-    const result = CardNumberValidator('411111111111111');
+    const result = cardNumberValidator('411111111111111');
     expect(result).toBe(
-      `${SCOPED_STRINGS.InvalidMinLength} ${SCOPED_STRINGS.ValidVisaLength}`,
+      `${SCOPED_STRINGS.invalidMinLength} ${SCOPED_STRINGS.validVisaLength}`,
     );
   });
 
   it('should return an error when given a 12 character Visa card number', () => {
-    const result = CardNumberValidator('411111111111');
+    const result = cardNumberValidator('411111111111');
     expect(result).toBe(
-      `${SCOPED_STRINGS.InvalidMinLength} ${SCOPED_STRINGS.ValidVisaLength}`,
+      `${SCOPED_STRINGS.invalidMinLength} ${SCOPED_STRINGS.validVisaLength}`,
     );
   });
 
   it('should return an error when given an invalid Amex card number', () => {
-    const result = CardNumberValidator('37828224631000');
+    const result = cardNumberValidator('37828224631000');
     expect(result).toBe(
-      `${SCOPED_STRINGS.InvalidMinLength} ${SCOPED_STRINGS.ValidAmexLength}`,
+      `${SCOPED_STRINGS.invalidMinLength} ${SCOPED_STRINGS.validAmexLength}`,
     );
   });
 
   it('should return an error when given an invalid MasterCard or Discover card number', () => {
-    const result = CardNumberValidator('561059108101825');
+    const result = cardNumberValidator('561059108101825');
     expect(result).toBe(
-      `${SCOPED_STRINGS.InvalidMinLength} ${SCOPED_STRINGS.ValidMasterCardOrDiscoverLength}`,
+      `${SCOPED_STRINGS.invalidMinLength} ${SCOPED_STRINGS.validMasterCardOrDiscoverLength}`,
     );
   });
 });
 
 describe('ExpirationValidator', () => {
   it('should return an error message when the input is empty', () => {
-    expect(ExpirationValidator('')).toEqual(SCOPED_STRINGS.MustNotBeEmpty);
+    expect(expirationValidator('')).toEqual(SCOPED_STRINGS.mustNotBeEmpty);
   });
 
   it('should return an error message when the input is not in MM/YY format', () => {
-    expect(ExpirationValidator('AA$25')).toEqual(
-      SCOPED_STRINGS.InvalidExpiration,
+    expect(expirationValidator('AA$25')).toEqual(
+      SCOPED_STRINGS.invalidExpiration,
     );
   });
 
   it('should return an error message when the month is invalid', () => {
-    expect(ExpirationValidator('00/99')).toEqual(
-      SCOPED_STRINGS.InvalidExpiration,
+    expect(expirationValidator('00/99')).toEqual(
+      SCOPED_STRINGS.invalidExpiration,
     );
   });
 
   it('should return an error message when the year is valid', () => {
-    expect(ExpirationValidator('01/15')).toEqual(SCOPED_STRINGS.CardExpired);
+    expect(expirationValidator('01/15')).toEqual(SCOPED_STRINGS.cardExpired);
   });
 
   it('should return an empty string when the input is valid', () => {
-    expect(ExpirationValidator('12/33')).toEqual('');
+    expect(expirationValidator('12/33')).toEqual('');
   });
 });
 
 describe('CvvValidator', () => {
   it('should return an error message when the input is empty', () => {
-    expect(CvvValidator('')).toEqual(SCOPED_STRINGS.MustNotBeEmpty);
+    expect(cvvValidator('')).toEqual(SCOPED_STRINGS.mustNotBeEmpty);
   });
 
   it('should return an error message when the input is not in the correct format', () => {
-    expect(CvvValidator('1!sd@')).toEqual(SCOPED_STRINGS.InvalidCvv);
+    expect(cvvValidator('1!sd@')).toEqual(SCOPED_STRINGS.invalidCvv);
   });
 
   it('should return an empty string when the input is valid', () => {
-    expect(CvvValidator('123')).toEqual('');
+    expect(cvvValidator('123')).toEqual('');
   });
 });
 
 describe('AmexCvvValidator', () => {
   it('should return an error message when the input is empty', () => {
-    expect(AmexCvvValidator('')).toEqual(SCOPED_STRINGS.MustNotBeEmpty);
+    expect(amexCvvValidator('')).toEqual(SCOPED_STRINGS.mustNotBeEmpty);
   });
 
   it('should return an error message when the input is not in the correct format', () => {
-    expect(AmexCvvValidator('! a4')).toEqual('Invalid CVV');
+    expect(amexCvvValidator('! a4')).toEqual('Invalid CVV');
   });
 
   it('should return an empty string when the input is valid', () => {
-    expect(AmexCvvValidator('1235')).toEqual('');
+    expect(amexCvvValidator('1235')).toEqual('');
   });
 });
 
 describe('NameValidator', () => {
   it('should return an error message when the input is empty', () => {
-    expect(NameValidator('')).toEqual(SCOPED_STRINGS.MustNotBeEmpty);
+    expect(nameValidator('')).toEqual(SCOPED_STRINGS.mustNotBeEmpty);
   });
 
   it('should return an error message when the input is too long', () => {
     const longName = 'a'.repeat(256);
-    expect(NameValidator(longName)).toEqual(SCOPED_STRINGS.InvalidMaxLength255);
+    expect(nameValidator(longName)).toEqual(SCOPED_STRINGS.invalidMaxLength255);
   });
 
   it('should return an error when the input contains numbers', () => {
-    expect(NameValidator('123')).toEqual(
-      SCOPED_STRINGS.MustBeAlphabeticOrWhiteSpace,
+    expect(nameValidator('123')).toEqual(
+      SCOPED_STRINGS.mustBeAlphabeticOrWhiteSpace,
     );
   });
 
   it('should return an error when the input begins with whitespace', () => {
-    expect(NameValidator(' abc')).toEqual(
-      SCOPED_STRINGS.MustBeAlphabeticOrWhiteSpace,
+    expect(nameValidator(' abc')).toEqual(
+      SCOPED_STRINGS.mustBeAlphabeticOrWhiteSpace,
     );
   });
 
   it('should return an error when the input contains special characters', () => {
-    expect(NameValidator('!$#$!')).toEqual(
-      SCOPED_STRINGS.MustBeAlphabeticOrWhiteSpace,
+    expect(nameValidator('!$#$!')).toEqual(
+      SCOPED_STRINGS.mustBeAlphabeticOrWhiteSpace,
     );
   });
 
   it('should return an empty string when the input is valid', () => {
-    expect(NameValidator('John Doe')).toEqual('');
+    expect(nameValidator('John Doe')).toEqual('');
   });
 });

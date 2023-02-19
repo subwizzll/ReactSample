@@ -1,4 +1,4 @@
-import {isNullOrWhiteSpace} from '../../utils/StringMethods';
+import {isNullOrWhiteSpace} from '../../utils/stringMethods';
 
 describe('isNullOrWhiteSpace', () => {
   it('should return true when given null', () => {

@@ -104,8 +104,8 @@ const submitHandler = () => {
 
 ### Additional Features:
 
-- For fun, I included some input masking as part of the validation flow found in `Masks.tsx`.
-- I also abstracted user facing strings to `Localization.js` to reduce test failures from mismatched strings.
+- For fun, I included some input masking as part of the validation flow found in `masks.tsx`.
+- I also abstracted user facing strings to `strings.js` to reduce test failures from mismatched strings.
 - Custom components were created to reduce verbosity in the `CardInputPage`
 - This app also supports `light` and `dark` mode with a global color scheme for each device theme.
 - `TypeScript` was also used through-out this project to better manage the codebase.

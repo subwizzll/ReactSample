@@ -1,4 +1,4 @@
-export default {
+export const Constants = {
   VALIDATION: {
     CardNumberTestValues: {
       Visa: {

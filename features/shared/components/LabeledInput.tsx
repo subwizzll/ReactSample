@@ -8,11 +8,11 @@ import {
   TextInputEndEditingEventData,
 } from 'react-native';
 
-import {Colors} from '../../../resources/Colors';
+import {Colors} from '../../../resources/colors';
 import Text from './Text';
 import TextInput from './TextInput';
 import {TextInputProps} from 'react-native/Libraries/Components/TextInput/TextInput';
-import {isNullOrWhiteSpace} from '../../../utils/StringMethods';
+import {isNullOrWhiteSpace} from '../../../utils/stringMethods';
 
 interface LabeledInputProps {
   label: string;

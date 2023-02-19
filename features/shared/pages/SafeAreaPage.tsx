@@ -1,18 +1,18 @@
 import React from 'react';
 import {SafeAreaView, StatusBar} from 'react-native';
 
-import * as Themes from '../../../resources/Styles';
+import * as Styles from '../../../resources/styles';
 
 interface SafeAreaPageProps {
   children: React.ReactNode;
 }
 
 export default function SafeAreaPage(props: SafeAreaPageProps) {
-  const styles = Themes.GlobalStyles();
+  const styles = Styles.useGlobalStyles();
   return (
     <SafeAreaView style={styles.pageContainer}>
       <StatusBar
-        barStyle={Themes.StatusBarScheme()}
+        barStyle={Styles.useStatusBarScheme()}
         backgroundColor={styles.statusBar.backgroundColor}
       />
       {props.children}
